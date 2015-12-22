@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+		
+	<!-- enable Method level [vs URL level] authorization  This work for APPLICATION Level scanned components
+      	Does NOT recognize WEB level components - for THAT  need to place enable line in Dispatcher-servlet-->
+	<security:global-method-security pre-post-annotations="enabled"/>
+	
+	<!-- security:http enables security filter mechanism...name space configuration is activated.
+		use-expressions enables URL level authorization -->
+	<security:http use-expressions="true">
+		
+		
+			
+		<!-- enable web based URL -->
+		<security:intercept-url pattern="/" access="hasAnyRole('ROLE_SCRUM_MASTER','ROLE_PRODUCT_OWNER', 'ROLE_ADMIN','ROLE_DEVELOPER', 'ROLE_TESTER', 'ROLE_USER')"/>
+             
+                <security:intercept-url pattern="/welcome2/**" access="hasRole('ROLE_ADMIN')"/> 
+		<!-- Employee create, edit, delete and role will use and service method level -->
+		<security:intercept-url pattern="/employees/**" access="hasRole('ROLE_ADMIN')"/>
+<!-- 		<security:intercept-url pattern="/employees/create" access="hasRole('ROLE_ADMIN')"/> -->
+<!-- 		<security:intercept-url pattern="/employees/edit" access="hasRole('ROLE_ADMIN')"/> -->
+<!-- 		<security:intercept-url pattern="/employees/delete" access="hasRole('ROLE_ADMIN')"/> -->
+		
+		<!-- Product Backlogs add delete update -->
+                
+               
+		<security:intercept-url pattern="/ReleaseBacklogs/**" access="hasAnyRole('ROLE_PRODUCT_OWNER','ROLE_SCRUM_MASTER', 'ROLE_ADMIN','ROLE_USER')"/>
+                       
+		<security:intercept-url pattern="/ReleaseBacklogsReleases/**" access="hasAnyRole('ROLE_SCRUM_MASTER','ROLE_PRODUCT_OWNER', 'ROLE_ADMIN')"/>
+                <!-- <security:intercept-url pattern="/ReleaseBacklogs/userStory/edit" access="hasAnyRole('ROLE_USER')"/> -->
+		
+		<!-- Roles add delete update -->
+		
+		
+		<security:form-login login-page="/login"
+							login-processing-url="/processLogin"
+							password-parameter="password"
+							username-parameter="username"
+					 		authentication-failure-url="/loginfailed"
+					 		default-target-url="/"
+					 		always-use-default-target="false"/>
+		<security:logout logout-success-url="/logout"  logout-url= "/proccessLogout"/>
+		<security:access-denied-handler error-page="/accessdenied"/>
+	</security:http>
+	
+    <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+<!--	<security:authentication-manager>
+		<security:authentication-provider>
+		<security:password-encoder hash="bcrypt"/>
+		<security:password-encoder ref="encoder"/>
+		<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select username, password, 'true' enabled from user where username=?"
+				authorities-by-username-query="select u.username, r.name from user u, role r, user_role ur where (u.id = ur.User_id) and (r.id = ur.roles_id) and u.username=?"/>
+		</security:authentication-provider>
+	</security:authentication-manager>-->
+	
+	  <security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="admin" password="admin" authorities="ROLE_ADMIN" />
+                                <security:user name="dev" password="dev" authorities= "ROLE_USER" />
+				<security:user name="sm" password="sm" authorities="ROLE_SCRUM_MASTER" />
+                                
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager> 
+</beans>
