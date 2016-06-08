@@ -1,0 +1,17 @@
+{word=[29] neighbor=[10]}	0.06666666666666667
+{word=[29] neighbor=[12]}	0.2
+{word=[29] neighbor=[12]}	0.06666666666666667
+{word=[29] neighbor=[18]}	0.06666666666666667
+{word=[29] neighbor=[34]}	0.26666666666666666
+{word=[29] neighbor=[56]}	0.13333333333333333
+{word=[29] neighbor=[79]}	0.06666666666666667
+{word=[29] neighbor=[92]}	0.13333333333333333
+{word=[56] neighbor=[10]}	0.1
+{word=[56] neighbor=[12]}	0.2
+{word=[56] neighbor=[12]}	0.1
+{word=[56] neighbor=[29]}	0.1
+{word=[56] neighbor=[34]}	0.3
+{word=[56] neighbor=[92]}	0.2
+{word=[92] neighbor=[10]}	0.3333333333333333
+{word=[92] neighbor=[12]}	0.3333333333333333
+{word=[92] neighbor=[34]}	0.3333333333333333

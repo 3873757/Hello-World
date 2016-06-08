@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
+		<put-attribute name="navigation" value="" />
+		<put-attribute name="heading" value="Welcome to MUMScrum Scrum Tool!" />
+		<put-attribute name="tagline" value="" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />	
+	</definition>
+		   
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="login.title" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="" />
+		<put-attribute name="content" value="/WEB-INF/views/login.jsp" />
+	</definition>
+	
+	<definition name="accessdenied" extends="baseLayout">
+		<put-attribute name="title" value="access.denied.title" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="" />
+		<put-attribute name="content" value="/WEB-INF/views/accessdenied.jsp" />
+	</definition>
+	
+	<definition name="welcome" extends="baseLayout">
+		<put-attribute name="title" value="welcome" />
+		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/baseNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/welcome.jsp" />	
+	</definition>
+	<definition name="welcome2" extends="baseLayout">
+		<put-attribute name="title" value="welcome2" />
+		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/baseNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome2" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/welcome2.jsp" />	
+	</definition>
+	<definition name="success" extends="baseLayout">
+ 		<put-attribute name="title" value="role.success.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/HRAdmin.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/success.jsp" />		
+	</definition> 
+	
+<!--  ======================= 	ROLE ======================================= -->
+	<definition name="role/roleHomePage" extends="baseLayout">
+		<put-attribute name="title" value="role.home.page" />
+		<put-attribute name="navigation" value="/WEB-INF/views/role/roleNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/role/roleHomePage.jsp" />	
+	</definition>
+	
+	<definition name="role/create" extends="baseLayout">
+		<put-attribute name="title" value="role.create.title" />
+		<put-attribute name="navigation" value="/WEB-INF/views/role/roleNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/role/create.jsp" />	
+	</definition>
+	
+	<definition name="role/edit" extends="baseLayout">
+		<put-attribute name="title" value="role.edit.title" />
+		<put-attribute name="navigation" value="/WEB-INF/views/role/roleNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/role/edit.jsp" />	
+	</definition>
+	
+	<definition name="role/list" extends="baseLayout">
+		<put-attribute name="title" value="role.list.title" />
+		<put-attribute name="navigation" value="/WEB-INF/views/role/roleNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/role/list.jsp" />	
+	</definition>
+	
+	<definition name="role/detail" extends="baseLayout">
+		<put-attribute name="title" value="role.detail.title" />
+		<put-attribute name="navigation" value="/WEB-INF/views/role/roleNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/role/detail.jsp" />	
+	</definition>
+
+	<definition name="role/success" extends="baseLayout">
+		<put-attribute name="title" value="role.success.title" />
+		<put-attribute name="navigation" value="/WEB-INF/views/role/roleNavigation.jsp" />
+		<put-attribute name="heading" value="Welcome" />
+		<put-attribute name="tagline" value="Walia" />
+		<put-attribute name="content" value="/WEB-INF/views/role/success.jsp" />	
+	</definition>
+	<!-- ============================ EMPLOYEE ============================================================ -->
+	
+   	<definition name="employee/create" extends="baseLayout">
+ 		<put-attribute name="title" value="employee.create.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/HRAdmin.jsp" />
+		<put-attribute name="heading" value="Create Employee" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/employee/create.jsp" />		
+	</definition>   
+	
+   	<definition name="employee/list" extends="baseLayout">
+		<put-attribute name="title" value="employee.list.title" />
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/HRAdmin.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="" />
+		<put-attribute name="content" value="/WEB-INF/views/employee/list.jsp" />
+	</definition>
+	
+	<definition name="employee/edit" extends="baseLayout">
+		<put-attribute name="title" value="employee.edit.title" />
+		 <put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/HRAdmin.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/employee/edit.jsp" />		
+	</definition>
+	
+	<definition name="employee/detail" extends="baseLayout">
+		<put-attribute name="title" value="employee.detail.title"/>
+		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/HRAdmin.jsp" />
+		<put-attribute name="heading" value="Employee Detail" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/employee/detail.jsp"/>		
+	</definition>
+	
+	<definition name="employee/assignRole" extends="baseLayout">
+ 		<put-attribute name="title" value="employee.assign.role.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/HRAdmin.jsp" />
+		<put-attribute name="heading" value="Create Employee" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/employee/assignRole.jsp" />		
+	</definition> 
+	
+	<!--  =============================== product owner navigation ============================ -->
+	
+			
+	<definition name="productBacklog/" extends="baseLayout">
+ 		<put-attribute name="title" value="ReleaseBacklogs.create.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/productOwnerNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/productBacklog/create.jsp" />		
+	</definition> 
+	
+	<definition name="productBacklog/create" extends="baseLayout">
+ 		<put-attribute name="title" value="ReleaseBacklogs.create.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/productBacklogNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/productBacklog/create.jsp" />		
+	</definition> 
+	
+	<definition name="productBacklog/edit" extends="baseLayout">
+ 		<put-attribute name="title" value="ReleaseBacklogs.edit.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/productBacklogNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/productBacklog/edit.jsp" />		
+	</definition> 
+	
+	<definition name="productBacklog/list" extends="baseLayout">
+ 		<put-attribute name="title" value="ReleaseBacklogs.list.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/productBacklogNavigation.jsp"/>
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/productBacklog/list.jsp" />		
+	</definition> 
+	
+	<definition name="productBacklog/detail" extends="baseLayout">
+ 		<put-attribute name="title" value="ReleaseBacklogs.detail.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/productBacklogNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/productBacklog/detail.jsp" />		
+	</definition> 
+	
+	
+	
+	<!--  =============================== Product BackLogs Release Navigation ============================ -->
+	
+	<definition name="ProductBackLogRelease/" extends="baseLayout">
+ 		<put-attribute name="title" value="ProductBackLogRelease.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/ProductBackLogReleaseNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/ProductBackLogRelease/list.jsp" />		
+	</definition> 
+	
+	<definition name="ProductBackLogRelease/create" extends="baseLayout">
+ 		<put-attribute name="title" value="ProductBackLogRelease.create.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/ProductBackLogReleaseNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/ProductBackLogRelease/create.jsp" />		
+	</definition> 
+	
+	<definition name="ProductBackLogRelease/edit" extends="baseLayout">
+ 		<put-attribute name="title" value="ProductBackLogRelease.edit.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/ProductBackLogReleaseNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/ProductBackLogRelease/edit.jsp" />		
+	</definition> 
+	
+	
+	<definition name="ProductBackLogRelease/list" extends="baseLayout">
+ 		<put-attribute name="title" value="ProductBackLogRelease.list.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/ProductBackLogReleaseNavigation.jsp"/>
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/ProductBackLogRelease/list.jsp" />		
+	</definition>
+	
+	<definition name="ProductBackLogRelease/detail" extends="baseLayout">
+ 		<put-attribute name="title" value="ProductBackLogRelease.detail.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/ProductBackLogReleaseNavigation.jsp"/>
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/ProductBackLogRelease/detail.jsp" />		
+	</definition>
+	
+
+	
+		<!--  =============================== Dev_tester navigation ============================ -->
+	
+	<definition name="sprint/" extends="baseLayout">
+ 		<put-attribute name="title" value="sprint.list.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/devTesterNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/sprint/list.jsp" />		
+	</definition> 
+	
+	<definition name="sprint/create" extends="baseLayout">
+ 		<put-attribute name="title" value="sprint.create.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/devTesterNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/sprint/create.jsp" />		
+	</definition> 
+	
+	<definition name="sprint/edit" extends="baseLayout">
+ 		<put-attribute name="title" value="sprint.edit.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/devTesterNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/sprint/edit.jsp" />		
+	</definition> 
+	
+	<definition name="sprint/list" extends="baseLayout">
+ 		<put-attribute name="title" value="sprint.list.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/devTesterNavigation.jsp"/>
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/sprint/list.jsp" />		
+	</definition>
+	
+		<!--  =============================== User story navigation ============================ -->
+	
+	<definition name="userStory/" extends="baseLayout">
+ 		<put-attribute name="title" value="userStory.list.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/userStoryNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/userStory/list.jsp" />		
+	</definition> 
+	
+	<definition name="userStory/create" extends="baseLayout">
+ 		<put-attribute name="title" value="userStory.create.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/userStoryNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/userStory/create.jsp" />		
+	</definition> 
+	
+	<definition name="userStory/edit" extends="baseLayout">
+ 		<put-attribute name="title" value="userStory.edit.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/userStoryNavigation.jsp" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/userStory/edit.jsp" />		
+	</definition> 
+	
+	<definition name="userStory/list" extends="baseLayout">
+ 		<put-attribute name="title" value="userStory.list.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/userStoryNavigation.jsp"/>
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/userStory/list.jsp" />		
+	</definition>
+	
+	<definition name="userStory/detail" extends="baseLayout">
+ 		<put-attribute name="title" value="userStory.detail.title"/>
+ 		<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation/userStoryNavigation.jsp"/>
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value=""/>
+		<put-attribute name="content" value="/WEB-INF/views/userStory/detail.jsp" />		
+	</definition>
+	
+</tiles-definitions>

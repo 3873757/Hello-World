@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+   xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="
+      http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+ 	  http://www.springframework.org/schema/context
+ 	  http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd
+      http://www.springframework.org/schema/data/jpa
+      http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+      
+	<!-- This jpa:repository scans all interfaces that extended CrudRepository and creates implementations to use at runtime -->
+	<jpa:repositories base-package="cs425.mum.MUMScrum.repository"/>
+	
+	<!-- This Spring framework entityManager class creates a JPA EntityManagerFactory according to JPA's standard container 
+    	bootstrap contrast. This way set up a shared JPA EntityMangerFactory in a Spring application context-->
+	<bean id = "entityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="cs425.mum.MUMScrum.domain" />
+		
+		<!-- Exposes Hibernate's persistence provider and EntityManager extension interface -->
+		<property name="jpaVendorAdapter"><bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" /></property>
+		
+		<!-- *validate: validate the schema, makes no changes to the database. 
+			*update: update the schema. 
+			*create: creates the schema, destroying previous data. 
+			*create-drop: drop the schema at the end of the session. 
+			These options intended to be developers tools and not to facilitate any production level databases 
+			<prop key="hibernate.hbm2ddl.auto">create-drop</prop>.
+		 	*hibernate.dialect. This property makes Hibernate generate the appropriate SQL for the chosen database. -->
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+	            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop> 
+	            
+             	<!-- Populate data into database. Example: admin user and associate data for using application -->
+             	<!--  prop key="hibernate.hbm2ddl.import_files">initialize_data.sql</prop -->
+			</props>
+        </property>
+	</bean>
+	
+	<!-- Creates data source of mySql with specific username and password -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/mumscrum" />
+		<property name="username" value="root"/>
+		<property name="password" value=""/>
+	</bean>
+	
+	<!-- This transaction manager is appropriate for applications that use a single JPA EntityManagerFactory for transactional data access. http://docs.spring.io/ -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManager" />
+	</bean>
+	
+	<!-- Configures component scanning directives for use with annotation(@Configuration classes).
+		Spring container can detect and register your beans or components. -->
+	<context:component-scan base-package="cs425.mum.MUMScrum.service" />
+	<context:component-scan base-package="cs425.mum.MUMScrum.domain" />
+	<context:component-scan base-package="cs425.mum.MUMScrum.repository" />
+	
+	<!-- Enables Spring's annotation-driven transaction management capability. 
+	Responses for registering the necessary Spring components that power annotation-driven transaction management -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- Bean post-processor to perform exception translation on @Repository classes 
+		(from native exceptions such as JPA PersistenceExceptions to Spring DataAccessException hierarchy). -->
+	<bean id="persistenceExceptionTranslationPostProcessor"
+			class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+</beans>

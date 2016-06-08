@@ -1,0 +1,13 @@
+{word=[12] neighbor=[10]}	0.08333333333333333
+{word=[12] neighbor=[12]}	0.08333333333333333
+{word=[12] neighbor=[18]}	0.08333333333333333
+{word=[12] neighbor=[34]}	0.3333333333333333
+{word=[12] neighbor=[56]}	0.16666666666666666
+{word=[12] neighbor=[79]}	0.08333333333333333
+{word=[12] neighbor=[92]}	0.16666666666666666
+{word=[18] neighbor=[12]}	0.25
+{word=[18] neighbor=[29]}	0.125
+{word=[18] neighbor=[34]}	0.25
+{word=[18] neighbor=[56]}	0.125
+{word=[18] neighbor=[79]}	0.125
+{word=[18] neighbor=[92]}	0.125
